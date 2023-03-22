@@ -1,0 +1,202 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');
+
+*,
+*::before,
+*::after {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+html{
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: #fdfdfd;
+}
+
+.header {
+    position: relative;
+    height: 100vh;
+    width: 100%;
+    background-image: url("../img/content/header/bg.jpg");
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.h-navbar {
+    height: auto;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.22);
+    backdrop-filter: blur(3px);
+    padding: 8px 128px;
+}
+
+.h-n-logo {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.h-n-logo>img{
+    transition: transform 0.32s linear;
+}
+
+.h-n-logo>img:hover{
+    transform: rotateY(180deg);
+}
+
+.h-n-menu>ul {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    list-style-type: none;
+}
+
+.h-n-menu>ul>li {
+    display: flex;
+}
+
+.h-n-menu>ul>li:not(:last-of-type) {
+    margin-right: 12px;
+}
+
+.h-n-menu>ul>li>a {
+    position: relative;
+    font-family: "Lato";
+    font-weight: bold;
+    font-size: 16px;
+    text-decoration: none;
+    text-transform: capitalize;
+    color: #ffffff;
+    padding: 8px;
+    transition: color 0.32s linear;
+    z-index: 1;
+}
+
+.h-n-menu>ul>li>a::before {
+    content: "";
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    height: 2px;
+    width: 0px;
+    background-color: #0c79e3;
+    transition: width 0.32s linear;
+    z-index: -1;
+}
+
+.h-n-menu>ul>li>a::after {
+    content: "";
+    position: absolute;
+    bottom: 0px;
+    right: 0px;
+    height: 2px;
+    width: 0px;
+    background-color: #0c79e3;
+    transition: width 0.32s linear;
+    z-index: -1;
+}
+
+.h-n-menu>ul>li>a:hover::before,
+.h-n-menu>ul>li>a:hover::after {
+    width: 100%;
+}
+
+.h-n-menu>ul>li>a:hover {
+    color: #0c79e3;
+}
+
+.h-description{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transform: translate(-50%, -50%);
+}
+
+.h-description>h3{
+    position: relative;
+    font-family: "Georgia";
+    font-style: italic;
+    font-weight: lighter;
+    font-size: 18px;
+    text-align: center;
+    color: #959595;
+    user-select: none;
+    margin-bottom: 24px;
+}
+
+.h-description>h3::before{
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: -48px;
+    transform: translate(0%, -50%);
+    height: 1px;
+    width: 32px;
+    background-color: #0c79e3;
+}
+
+.h-description>h3::after{
+    content: "";
+    position: absolute;
+    top: 50%;
+    right: -48px;
+    transform: translate(0%, -50%);
+    height: 1px;
+    width: 32px;
+    background-color: #0c79e3;
+}
+
+.h-description>h4{
+    font-family: "Lato";
+    font-weight: initial;
+    font-size: 56px;
+    text-transform: uppercase;
+    color: #0c79e3;
+}
+
+.h-description>h5{
+    position: relative;
+    font-family: "Lato";
+    font-weight: initial;
+    font-size: 56px;
+    text-transform: uppercase;
+    color: #ffffff;
+    width: auto;
+    height: 67px;
+}
+
+.h-description>h5::after{
+    content: "";
+    position: absolute;
+    top: 0px;
+    right: -12px;
+    height: 100%;
+    width: 4px;
+    background-color: #ffffff;
+    opacity: 1;
+    animation: typingText 0.32s linear infinite alternate;
+}
+
+@keyframes typingText {
+    from{
+        opacity: 1;
+    }
+    to{
+        opacity: 0;
+    }
+}
