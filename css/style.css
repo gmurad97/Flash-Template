@@ -8,12 +8,12 @@
     box-sizing: border-box;
 }
 
-html{
+html {
     scroll-behavior: smooth;
 }
 
 body {
-    background-color: #fdfdfd;
+    background-color: #ffffff;
 }
 
 .header {
@@ -24,6 +24,7 @@ body {
     background-position: center center;
     background-repeat: no-repeat;
     background-size: cover;
+    overflow: hidden;
 }
 
 .h-navbar {
@@ -33,7 +34,7 @@ body {
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    background-color: rgba(0, 0, 0, 0.22);
+    background-color: rgba(0, 0, 0, 0.32);
     backdrop-filter: blur(3px);
     padding: 8px 128px;
 }
@@ -46,11 +47,11 @@ body {
     cursor: pointer;
 }
 
-.h-n-logo>img{
+.h-n-logo>img {
     transition: transform 0.32s linear;
 }
 
-.h-n-logo>img:hover{
+.h-n-logo>img:hover {
     transform: rotateY(180deg);
 }
 
@@ -116,18 +117,22 @@ body {
     color: #0c79e3;
 }
 
-.h-description{
+.h-description {
     position: absolute;
-    top: 50%;
-    left: 50%;
+    top: 0px;
+    right: 0px;
+    bottom: 0px;
+    left: 0px;
+    height: fit-content;
+    width: fit-content;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    transform: translate(-50%, -50%);
+    margin: auto;
 }
 
-.h-description>h3{
+.h-description>h3 {
     position: relative;
     font-family: "Georgia";
     font-style: italic;
@@ -135,11 +140,10 @@ body {
     font-size: 18px;
     text-align: center;
     color: #959595;
-    user-select: none;
     margin-bottom: 24px;
 }
 
-.h-description>h3::before{
+.h-description>h3::before {
     content: "";
     position: absolute;
     top: 50%;
@@ -150,7 +154,7 @@ body {
     background-color: #0c79e3;
 }
 
-.h-description>h3::after{
+.h-description>h3::after {
     content: "";
     position: absolute;
     top: 50%;
@@ -161,7 +165,7 @@ body {
     background-color: #0c79e3;
 }
 
-.h-description>h4{
+.h-description>h4 {
     font-family: "Lato";
     font-weight: initial;
     font-size: 56px;
@@ -169,7 +173,7 @@ body {
     color: #0c79e3;
 }
 
-.h-description>h5{
+.h-description>h5 {
     position: relative;
     font-family: "Lato";
     font-weight: initial;
@@ -180,7 +184,7 @@ body {
     height: 67px;
 }
 
-.h-description>h5::after{
+.h-description>h5::after {
     content: "";
     position: absolute;
     top: 0px;
@@ -193,10 +197,71 @@ body {
 }
 
 @keyframes typingText {
-    from{
+    from {
         opacity: 1;
     }
-    to{
+
+    to {
         opacity: 0;
     }
+}
+
+.h-info {
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+    height: auto;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.32);
+    padding: 16px 128px;
+}
+
+.h-info-block {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 16px;
+}
+
+.h-info-block:hover {
+    background-color: rgba(12, 121, 227, 0.12);
+    border-radius: 8px;
+}
+
+.h-info-block-column {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    margin-left: 16px;
+}
+
+.h-info-block-column>p {
+    font-family: "Lato";
+    line-height: 24px;
+    word-spacing: 2px;
+}
+
+.h-info-block-column>p:nth-child(1) {
+    font-size: 16px;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: #ffffff;
+}
+
+.h-info-block-column>p:nth-child(2) {
+    font-size: 14px;
+    font-weight: 400;
+    color: #959595;
+    border-top: 1px solid #0c79e3;
+}
+
+.fa-flash-first-type {
+    font-size: 42px;
+    color: #0c79e3;
 }
