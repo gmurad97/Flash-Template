@@ -225,12 +225,13 @@ body {
     flex-direction: row;
     justify-content: flex-start;
     align-items: center;
+    border-radius: 8px;
     padding: 16px;
+    transition: background-color 0.16s linear;
 }
 
 .h-info-block:hover {
-    background-color: rgba(12, 121, 227, 0.12);
-    border-radius: 8px;
+    background-color: rgba(12, 121, 227, 0.16);
 }
 
 .h-info-block-column {
@@ -264,4 +265,178 @@ body {
 .fa-flash-first-type {
     font-size: 42px;
     color: #0c79e3;
+}
+
+.main{
+    height: auto;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.m-about-us {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 8px 128px;
+    margin: 64px 0px;
+}
+
+.m-about-us>img {
+    border-radius: 12px;
+}
+
+.m-au-description {
+    margin-left: 32px;
+}
+
+.m-au-description>h3 {
+    position: relative;
+    font-family: "Georgia";
+    font-size: 42px;
+    font-weight: bolder;
+    word-spacing: 8px;
+    margin-bottom: 42px;
+}
+
+.m-au-description>h3::before {
+    content: "";
+    position: absolute;
+    bottom: -16px;
+    left: 0px;
+    height: 4px;
+    width: 256px;
+    background-color: #0c79e3;
+}
+
+.m-au-description>p {
+    font-family: "Lato";
+    font-size: 18px;
+    text-align: justify;
+    font-weight: 300;
+    line-height: 32px;
+    color: #000000;
+}
+
+.m-lending{
+    height: auto;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+}
+
+.m-l-block{
+    position: relative;
+    height: 250px;
+    width: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex: 1;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.m-l-b-overlay{
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(12, 121, 227, 0.2);
+    opacity: 0;
+    transition: opacity 0.32s linear;
+}
+
+.m-l-block:hover .m-l-b-overlay{
+    opacity: 1;
+}
+
+.m-l-box-one{
+    background-image: url(../img/content/lending/bg-box-1.jpg);
+    animation-delay: 0.4s;
+}
+
+.m-l-box-two{
+    background-image: url(../img/content/lending/bg-box-2.jpg);    
+    animation-delay: 0.2s;
+}
+
+.m-l-box-three{
+    background-image: url(../img/content/lending/bg-box-3.jpg);
+    animation-delay: 0.2s;
+}
+
+.m-l-box-four{
+    background-image: url(../img/content/lending/bg-box-4.jpg);
+    animation-delay: 0.4s;
+}
+
+
+
+
+
+
+
+
+
+
+.m-price-block{
+    margin-top: 64px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 1px 128px;
+}
+
+.m-p-b-price{
+    height: max-content;
+    width: fit-content;
+    margin-right: 32px;
+}
+
+.m-p-b-c-header{
+    background-color: #0c79e3;
+}
+.m-p-b-c-body{
+    background-color: #959595;
+}
+
+.m-p-b-c-body>p:nth-of-type(2n+1){
+    color: red;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.footer{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+
+    background-color: red;
+    height: 250px;
 }
