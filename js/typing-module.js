@@ -1,11 +1,11 @@
-const wordsArray = ["Logistic", "Freight", "Brokerage"];
+let textElement = document.getElementById("typing-text");
+let wordsArray = textElement.getAttribute("data-words-array").split(", ");
+
 let wordsIndex = 0;
 let isDeleting = false;
 let tempText = "";
 
 /*BEGIN - CONTROL*/
-let textElement = document.getElementById("typing-text");
-
 const SPEED_TYPING_TEXT = 128;
 const WAIT_TYPING_TEXT = 1536;
 const SPEED_DELETING_TEXT = 128;
