@@ -13,7 +13,7 @@
 
     --main-light-color: #0c79e3;
     --main-dark-color: #074380;
-    --main-dark-alpha-color: #07438040;
+    --main-dark-alpha-color: rgba(7, 67, 128, 0.32);
 
     --text-color: #ffffff;
     --text-primary-color: #a0a0a0;
@@ -223,7 +223,7 @@ body {
 
 .h-description>h5 {
     position: relative;
-    height: 66px;
+    height: 56px;
     width: auto;
     font-family: "Raleway";
     font-weight: 400;
@@ -299,81 +299,55 @@ body {
 
 .fa-flash-first-type {
     font-size: 32px;
-    color: #074380;
+    color: var(--main-dark-color);
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 .main {
     height: auto;
     width: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
     overflow: hidden;
 }
 
 .m-about-us {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    padding: 8px 128px;
-    margin: 64px 0px;
+    margin-top: 64px;
 }
 
 .m-about-us>img {
+    height: 600px;
+    width: 570px;
     border-radius: 12px;
+    filter: grayscale(0.64);
 }
 
 .m-au-description {
-    margin-left: 32px;
+    margin-left: 64px;
 }
 
 .m-au-description>h3 {
     position: relative;
-    font-family: "Georgia";
-    font-size: 42px;
-    font-weight: bolder;
-    word-spacing: 8px;
-    margin-bottom: 42px;
+    font-family: "Raleway";
+    font-size: 36px;
+    font-weight: 800;
+    text-transform: uppercase;
+    word-spacing: 12px;
+    margin-bottom: 32px;
 }
 
 .m-au-description>h3::before {
     content: "";
     position: absolute;
-    bottom: -16px;
+    bottom: -12px;
     left: 0px;
-    height: 4px;
+    height: 6px;
     width: 256px;
-    background-color: #0c79e3;
+    background-color: var(--main-dark-color);
 }
 
 .m-au-description>p {
-    font-family: "Lato";
-    font-size: 18px;
+    font-family: "Raleway";
+    font-size: 16px;
+    font-weight: 400;
     text-align: justify;
-    font-weight: 300;
     line-height: 32px;
     color: #000000;
 }
@@ -381,58 +355,106 @@ body {
 .m-lending {
     height: auto;
     width: 100%;
-    display: flex;
-    flex-direction: row;
+    flex-wrap: wrap;
+    margin-top: 64px;
 }
 
 .m-l-block {
     position: relative;
-    height: 250px;
+    height: 300px;
     width: auto;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
     flex: 1;
     background-position: center center;
     background-repeat: no-repeat;
     background-size: cover;
+    transition: flex 0.32s linear;
+    padding: 32px;
 }
 
 .m-l-b-overlay {
     position: absolute;
     top: 0px;
     left: 0px;
-    width: 100%;
     height: 100%;
-    background-color: rgba(12, 121, 227, 0.2);
+    width: 100%;
+    background-color: var(--main-dark-alpha-color);
     opacity: 0;
     transition: opacity 0.32s linear;
+    z-index: 0;
+}
+
+.m-l-block:hover{
+    flex: 2;
 }
 
 .m-l-block:hover .m-l-b-overlay {
     opacity: 1;
 }
 
-.m-l-box-one {
+.m-l-block-first {
     background-image: url(../img/content/lending/bg-box-1.jpg);
     animation-delay: 0.4s;
 }
 
-.m-l-box-two {
+.m-l-block-second {
     background-image: url(../img/content/lending/bg-box-2.jpg);
     animation-delay: 0.2s;
 }
 
-.m-l-box-three {
+.m-l-block-third {
     background-image: url(../img/content/lending/bg-box-3.jpg);
     animation-delay: 0.2s;
 }
 
-.m-l-box-four {
+.m-l-block-fourth {
     background-image: url(../img/content/lending/bg-box-4.jpg);
     animation-delay: 0.4s;
 }
+
+.fa-flash-second-type{
+    font-size: 32px;
+    color: var(--main-light-color);
+    margin-bottom: 22px;
+    z-index: 1;
+}
+
+.m-l-block>h3{
+    height: 21px;
+    width: 190px;
+    font-family: "Raleway";
+    font-size: 18px;
+    font-weight: 600;
+    text-align: center;
+    text-transform: uppercase;
+    color: var(--text-color);
+    overflow: hidden;
+    margin-bottom: 22px;
+    z-index: 1;
+}
+
+.m-l-block>p{
+    height: auto;
+    width: 190px;
+    font-family: "Raleway";
+    font-size: 16px;
+    font-weight: 300;
+    text-align: center;
+    color: var(--text-primary-color);
+    overflow: hidden;
+    z-index: 1;
+}
+
+
+
+
+
+
+
+
 
 
 
