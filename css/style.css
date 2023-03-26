@@ -16,6 +16,7 @@
     --main-dark-alpha-color: rgba(7, 67, 128, 0.32);
 
     --text-color: #ffffff;
+    --text-dark-color: #000000;
     --text-primary-color: #a0a0a0;
 }
 
@@ -71,6 +72,38 @@ body {
     height: auto;
     width: 1200px;
     padding: 8px;
+}
+
+.main-text{
+    position: relative;
+    font-family: "Raleway";
+    font-size: 42px;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: var(--text-dark-color);
+    margin: 128px 0px;
+}
+
+.main-text::before{
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: -48px;
+    height: 2px;
+    width: 32px;
+    transform: translate(0%, -50%);
+    background-color: var(--main-light-color);
+}
+
+.main-text::after{
+    content: "";
+    position: absolute;
+    top: 50%;
+    right: -48px;
+    height: 2px;
+    width: 32px;
+    transform: translate(0%, -50%);
+    background-color: var(--main-light-color);
 }
 
 /*DISPLAY FLEX CLASSES*/
@@ -309,7 +342,7 @@ body {
 }
 
 .m-about-us {
-    margin-top: 64px;
+    margin-top: 128px;
 }
 
 .m-about-us>img {
@@ -349,14 +382,13 @@ body {
     font-weight: 400;
     text-align: justify;
     line-height: 32px;
-    color: #000000;
+    color: var(--text-dark-color);
 }
 
 .m-lending {
     height: auto;
     width: 100%;
     flex-wrap: wrap;
-    margin-top: 64px;
 }
 
 .m-l-block {
@@ -459,20 +491,18 @@ body {
 
 
 
-
-
-
-
-
-
-.m-price-block {
-    margin-top: 64px;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    padding: 1px 128px;
+.m-price{
+    height: auto;
+    width: 100%;
 }
+
+.m-p-block{
+
+}
+
+
+
+
 
 .m-p-b-price {
     height: max-content;
