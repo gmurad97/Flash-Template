@@ -574,15 +574,41 @@ body {
 
 
 
+.m-price {
+    height: auto;
+    width: 100%;
+    margin-bottom: 128px;
+}
 
 
 
 
+.m-p-b-header {
+    background-color: var(--main-dark-color);
+    border-radius: 10px 10px 0px 0px;
+    padding: 16px 32px;
+}
 
+.fa-flash-price {
+    font-size: 22px;
+    margin-bottom: 8px;
+    color: #1b96e8;
+}
 
+.t-separator {
+    width: 100%;
+}
 
+.table-row {
+    width: 100%;
+}
 
-
+.m-p-b-footer {
+    background-color: aqua;
+    width: 100%;
+    padding: 16px 8px;
+    border-radius: 0px 0px 10px 10px;
+}
 
 .footer {
     height: auto;
