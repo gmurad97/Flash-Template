@@ -8,11 +8,11 @@ window.onload = function () {
 }
 
 function faBounceEnabled(elmRoot) {
-    elmRoot.querySelector(".fa-flash-lending-type").classList.add("fa-bounce");
+    elmRoot.querySelector("[class*=\"fa-flash\"]").classList.add("fa-bounce");
 }
 
 function faBounceDisabled(elmRoot) {
-    elmRoot.querySelector(".fa-flash-lending-type").classList.remove("fa-bounce");
+    elmRoot.querySelector("[class*=\"fa-flash\"]").classList.remove("fa-bounce");
 }
 
 let scrollBtn = document.getElementById("scrll-up");
