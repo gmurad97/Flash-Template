@@ -1,5 +1,5 @@
 let textElement = document.getElementById("typing-text");
-let wordsArray = textElement.getAttribute("data-words-array").split(", ");
+let wordsArray = textElement.getAttribute("data-typing-words").split(", ");
 
 let wordsIndex = 0;
 let isDeleting = false;
