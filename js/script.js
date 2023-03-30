@@ -36,3 +36,21 @@ function scrollToUp() {
     document.body.scrollTop = 0;
     document.documentElement.scrollTop = 0;
 }
+
+function filterImage(uniqueName) {
+    let allImage = document.querySelectorAll("[data-unique-name]");
+    let targetImage = document.querySelectorAll(`[data-unique-name="${uniqueName}"]`);
+    for (let sImg of allImage) {
+        sImg.style.width = "288px";
+    }
+    if (uniqueName === "all-flesh-img") {
+        for (let sImg of allImage) {
+            sImg.style.width = "288px";
+        }
+    }
+    else {
+        for (let sImg of targetImage) {
+            sImg.style.width = "0px";
+        }
+    }
+}

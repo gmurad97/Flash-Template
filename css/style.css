@@ -15,8 +15,8 @@
     --theme-light-color: #0c79e3;
     --theme-light-alpha-color: rgba(12, 121, 227, 0.64);
     --theme-panel-color: rgba(0, 0, 0, 0.32);
-    --theme-dark-price-color: #353b48;
-    --theme-light-price-color: #bdc3c7;
+    --theme-dark-div-color: #353b48;
+    --theme-light-div-color: #bdc3c7;
     --text-dark-color: #000000;
     --text-light-color: #ffffff;
     --text-dark-primary-color: #3e3e3e;
@@ -88,7 +88,7 @@ body {
     text-align: center;
     text-transform: uppercase;
     color: var(--text-dark-color);
-    margin: 128px 0px;
+    margin: 64px 0px;
 }
 
 .heading-text::before {
@@ -468,7 +468,7 @@ body {
 }
 
 .m-about-us {
-    margin-top: 128px;
+    margin-top: 64px;
 }
 
 .m-about-us>img {
@@ -611,24 +611,23 @@ body {
 .m-price {
     height: auto;
     width: 100%;
-    margin-bottom: 128px;
 }
 
-.m-price-block{
+.m-price-block {
     height: auto;
     width: 256px;
     border-radius: 6px;
     transition: box-shadow 0.32s linear;
 }
 
-.m-price-block:hover{
+.m-price-block:hover {
     box-shadow: -8px 8px 16px #a0a0a0;
 }
 
 .m-p-b-header {
     height: auto;
     width: 100%;
-    background-color: var(--theme-dark-price-color);
+    background-color: var(--theme-dark-div-color);
     border-radius: 6px 6px 0px 0px;
     padding: 32px;
 }
@@ -654,7 +653,7 @@ body {
     padding: 8px 0px;
 }
 
-.table-row>h3{
+.table-row>h3 {
     font-family: "Courier";
     font-size: 18px;
     font-weight: bold;
@@ -662,7 +661,7 @@ body {
     color: var(--text-dark-color);
 }
 
-.table-row>p{
+.table-row>p {
     font-family: "Courier";
     font-size: 16px;
     font-weight: bold;
@@ -670,12 +669,12 @@ body {
     color: var(--text-dark-primary-color);
 }
 
-.tr-separator{
+.tr-separator {
     height: auto;
     width: 100%;
 }
 
-.tr-description{
+.tr-description {
     font-family: "Courier";
     font-size: 14px;
     font-weight: bold;
@@ -688,16 +687,81 @@ body {
 .m-p-b-footer {
     height: auto;
     width: 100%;
-    background-color: var(--theme-light-price-color);
+    background-color: var(--theme-light-div-color);
     border-radius: 0px 0px 6px 6px;
     padding: 16px;
 }
 
+.m-gallery-control {
+    background-color: var(--theme-dark-div-color);
+    border-radius: 6px;
+    padding: 16px 32px;
+    margin-bottom: 32px;
+    width: 100%;
+}
 
+.m-gallery-control>ul {
+    list-style-type: none;
+}
 
+.m-gallery-control>ul>li {
+    position: relative;
+    font-family: "Raleway";
+    font-size: 14px;
+    font-weight: 400;
+    text-transform: capitalize;
+    color: var(--text-light-color);
+    cursor: pointer;
+    padding: 8px 12px;
+}
 
+.m-gallery-control>ul>li::before {
+    content: "";
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    height: 2px;
+    width: 0px;
+    background-color: var(--theme-light-color);
+    transition: width 0.32s linear;
+}
 
+.m-gallery-control>ul>li::after {
+    content: "";
+    position: absolute;
+    bottom: 0px;
+    right: 0px;
+    height: 2px;
+    width: 0px;
+    background-color: var(--theme-light-color);
+    transition: width 0.32s linear;
+}
 
+.m-gallery-control>ul>li:hover::before,
+.m-gallery-control>ul>li:hover::after {
+    width: 100%;
+}
+
+.m-gallery-control>ul>li:not(:last-of-type) {
+    margin-right: 16px;
+}
+
+.m-gallery-images {
+    height: auto;
+    width: 100%;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.m-gallery-images>img {
+    width: 288px;
+    aspect-ratio: 13/10;
+    border-radius: 16px;
+    margin-bottom: 32px;
+    transition: width 0.32s linear;
+}
 
 
 
