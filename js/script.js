@@ -37,20 +37,32 @@ function scrollToUp() {
     document.documentElement.scrollTop = 0;
 }
 
-function filterImage(uniqueName) {
+function visibleAllGalleryImage(boolVisibility) {
     let allImage = document.querySelectorAll("[data-unique-name]");
-    let targetImage = document.querySelectorAll(`[data-unique-name="${uniqueName}"]`);
-    for (let sImg of allImage) {
-        sImg.style.width = "288px";
-    }
-    if (uniqueName === "all-flesh-img") {
+    if (boolVisibility) {
         for (let sImg of allImage) {
             sImg.style.width = "288px";
+            sImg.style.opacity = "1";
         }
     }
     else {
-        for (let sImg of targetImage) {
+        for (let sImg of allImage) {
             sImg.style.width = "0px";
+            sImg.style.opacity = "0";
+        }
+    }
+}
+
+function filterImage(uniqueName) {
+    let targetImage = document.querySelectorAll(`[data-unique-name="${uniqueName}"]`);
+    if (uniqueName === "all-flesh-img") {
+        visibleAllGalleryImage(true);
+    }
+    else {
+        visibleAllGalleryImage(false);
+        for (let sImg of targetImage) {
+            sImg.style.width = "288px";
+            sImg.style.opacity = "1";
         }
     }
 }

@@ -758,9 +758,10 @@ body {
 .m-gallery-images>img {
     width: 288px;
     aspect-ratio: 13/10;
-    border-radius: 16px;
+    border-radius: 6px;
+    opacity: 1;
+    transition: width 0.32s linear, opacity 0.32s linear;
     margin-bottom: 32px;
-    transition: width 0.32s linear;
 }
 
 
