@@ -672,6 +672,8 @@ body {
 .tr-separator {
     height: auto;
     width: 100%;
+    border: 1px solid var(--theme-dark-div-color);
+    outline: none;
 }
 
 .tr-description {
