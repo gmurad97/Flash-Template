@@ -37,32 +37,32 @@ function scrollToUp() {
     document.documentElement.scrollTop = 0;
 }
 
-function visibleAllGalleryImage(boolVisibility) {
-    let allImage = document.querySelectorAll("[data-unique-name]");
+function galleryImgVisible(boolVisibility) {
+    let galleryAllImages = document.querySelectorAll("[data-unique-name]");
     if (boolVisibility) {
-        for (let sImg of allImage) {
-            sImg.style.width = "288px";
-            sImg.style.opacity = "1";
+        for (let gImg of galleryAllImages) {
+            gImg.style.width = "288px";
+            gImg.style.opacity = "1";
         }
     }
     else {
-        for (let sImg of allImage) {
-            sImg.style.width = "0px";
-            sImg.style.opacity = "0";
+        for (let gImg of galleryAllImages) {
+            gImg.style.width = "0px";
+            gImg.style.opacity = "0";
         }
     }
 }
 
 function filterImage(uniqueName) {
-    let targetImage = document.querySelectorAll(`[data-unique-name="${uniqueName}"]`);
+    let galleryTargetImages = document.querySelectorAll(`[data-unique-name="${uniqueName}"]`);
     if (uniqueName === "all-flesh-img") {
-        visibleAllGalleryImage(true);
+        galleryImgVisible(true);
     }
     else {
-        visibleAllGalleryImage(false);
-        for (let sImg of targetImage) {
-            sImg.style.width = "288px";
-            sImg.style.opacity = "1";
+        galleryImgVisible(false);
+        for (let gImg of galleryTargetImages) {
+            gImg.style.width = "288px";
+            gImg.style.opacity = "1";
         }
     }
 }

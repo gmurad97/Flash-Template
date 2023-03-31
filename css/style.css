@@ -751,57 +751,27 @@ body {
     width: 100%;
     display: flex;
     flex-flow: row wrap;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
 }
 
 .m-gallery-images>img {
+    height: auto;
     width: 288px;
-    aspect-ratio: 13/10;
     border-radius: 6px;
+    object-fit: cover;
     opacity: 1;
-    transition: width 0.32s linear, opacity 0.32s linear;
-    margin-bottom: 32px;
+    transition: width 0.32s linear, opacity 0.32s linear, display 0.32s linear;
+    margin-bottom: 12px;
 }
 
+.m-gallery-images>img:not(:nth-of-type(4n)) {
+    margin-right: 8px;
+}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+.m-gallery-images>img:last-of-type {
+    margin: 0px;
+}
 
 .footer {
     height: auto;
@@ -809,6 +779,7 @@ body {
     background-color: #282828;
     overflow: hidden;
     padding-top: 32px;
+    margin-top: 64px;
 }
 
 .f-header {
