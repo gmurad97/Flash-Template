@@ -829,10 +829,6 @@ body {
     margin-bottom: 16px;
 }
 
-.f-s-icons:not(:last-of-type) {
-    margin-bottom: 16px;
-}
-
 .fa-flash-footer {
     height: 32px;
     width: 32px;
@@ -866,17 +862,27 @@ body {
     background-color: #b4061c !important;
 }
 
+.f-s-icons {
+    border-radius: 6px;
+    transition: background-color 0.32s linear;
+    padding: 8px;
+}
+
+.f-s-icons:hover {
+    background-color: var(--theme-dark-alpha-color);
+}
+
+.f-s-icons:not(:last-of-type) {
+    margin-bottom: 16px;
+}
+
 .f-s-icons>a,
 .f-s-icons>h3 {
     font-family: "Raleway";
     font-size: 12px;
-    font-weight: 400;
+    font-weight: 500;
     text-decoration: none;
     color: var(--text-light-primary-color);
-}
-
-.f-s-icons>a:hover {
-    text-decoration: underline;
 }
 
 .f-h-contact>h3 {
