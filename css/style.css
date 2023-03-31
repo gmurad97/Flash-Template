@@ -764,7 +764,7 @@ body {
     object-fit: cover;
     opacity: 1;
     transition: width 0.32s linear, opacity 0.32s linear, display 0.32s linear;
-    margin-bottom: 12px;
+    margin-bottom: 8px;
 }
 
 .m-gallery-images>img:not(:nth-of-type(4n)) {
