@@ -66,3 +66,46 @@ function filterImage(uniqueName) {
         }
     }
 }
+
+
+
+
+
+/*NEW UNTESTED FUNCTION WARNING !!! FOR TEST*/
+
+const statsElements = document.querySelectorAll('[data-stats-counter]');
+const duration = 2000;
+
+function animateValue(element, start, end, duration) {
+    let startTimestamp = null;
+    const step = (timestamp) => {
+        if (!startTimestamp) startTimestamp = timestamp;
+        const progress = Math.min((timestamp - startTimestamp) / duration, 1);
+        element.textContent = Math.floor(progress * (end - start) + start);
+        if (progress < 1) {
+            window.requestAnimationFrame(step);
+        } else {
+            element.textContent = parseFloat(end);
+        }
+    };
+    window.requestAnimationFrame(step);
+}
+
+
+let options = {
+    threshold: [0]
+};
+let observer = new IntersectionObserver(entries, options);
+observer.observe(document.querySelector(".m-lending-counter"));
+
+
+function entries(entry) {
+    entry.forEach(change => {
+        if (change.isIntersecting) {
+            statsElements.forEach((element) => {
+                const countTo = element.getAttribute('data-stats-counter');
+                animateValue(element, 0, countTo, duration);
+            });
+        }
+    });
+}

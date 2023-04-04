@@ -512,6 +512,30 @@ body {
     color: var(--text-dark-color);
 }
 
+
+
+
+
+
+
+
+.m-lending-counter{
+    height: auto;
+    width: 100%;
+    background-color: var(--theme-panel-color);
+}
+
+.m-l-counter-block{
+    background-color: var(--theme-dark-alpha-color);
+}
+
+
+
+
+
+
+
+
 .m-lending {
     height: auto;
     width: 100%;
