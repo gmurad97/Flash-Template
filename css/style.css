@@ -816,7 +816,7 @@ body {
     width: 100%;
     display: flex;
     flex-flow: row wrap;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
 }
 
@@ -827,16 +827,16 @@ body {
     object-fit: cover;
     opacity: 1;
     transition: width 0.32s linear, opacity 0.32s linear, display 0.32s linear;
-    margin-bottom: 8px;
+    margin-bottom: 10px;
 }
 
-.m-gallery-images>img:not(:nth-of-type(4n)) {
+/* .m-gallery-images>img:not(:nth-of-type(4n)) {
     margin-right: 8px;
 }
 
 .m-gallery-images>img:last-of-type {
     margin: 0px;
-}
+} */
 
 .footer {
     height: auto;

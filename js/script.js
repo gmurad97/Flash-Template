@@ -41,14 +41,16 @@ function galleryImgVisible(boolVisibility) {
     let galleryAllImages = document.querySelectorAll("[data-unique-name]");
     if (boolVisibility) {
         for (let gImg of galleryAllImages) {
-            gImg.style.width = "288px";
-            gImg.style.opacity = "1";
+            /* gImg.style.width = "288px";
+            gImg.style.opacity = "1"; */
+            gImg.style.display = "flex";
         }
     }
     else {
         for (let gImg of galleryAllImages) {
-            gImg.style.width = "0px";
-            gImg.style.opacity = "0";
+            /* gImg.style.width = "0px";
+            gImg.style.opacity = "0"; */
+            gImg.style.display = "none";
         }
     }
 }
@@ -61,8 +63,9 @@ function filterImage(uniqueName) {
     else {
         galleryImgVisible(false);
         for (let gImg of galleryTargetImages) {
-            gImg.style.width = "288px";
-            gImg.style.opacity = "1";
+            /* gImg.style.width = "288px";
+            gImg.style.opacity = "1"; */
+            gImg.style.display = "flex";
         }
     }
 }
