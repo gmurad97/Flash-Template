@@ -12,6 +12,9 @@ const SPEED_DELETING_TEXT = 128;
 const WAIT_DELETING_TEXT = 128;
 /*ENDED - CONTROL*/
 
+var k = ["red","blue"]
+var k_index = 0;
+
 function typingText() {
     const currentWord = wordsArray[wordsIndex];
     if (!isDeleting) {
@@ -36,6 +39,18 @@ function typingText() {
             isDeleting = false;
             wordsIndex = (wordsIndex + 1) % wordsArray.length;
             setTimeout(() => {
+
+                if(k_index > k.length+1){
+                    k_index = 0;
+                    document.body.style.backgroundColor = k[k_index];
+                }
+                else{
+                    document.body.style.backgroundColor = k[k_index];
+                    k_index++;
+                }
+
+
+
                 typingText();
             }, WAIT_DELETING_TEXT);
         }
