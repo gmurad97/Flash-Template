@@ -16,32 +16,13 @@
     --theme-dark-color: #e67e22;
     --theme-dark-alpha32-color: rgba(230, 126, 34, 0.32);
     --theme-dark-alpha64-color: rgba(230, 126, 34, 0.64);
+    --theme-multi-color: #353b48;
     --theme-panel-alpha32-color: rgba(0, 0, 0, 0.32);
     --theme-panel-alpha64-color: rgba(0, 0, 0, 0.64);
     --text-dark-color: #3a3c3c;
     --text-light-color: #d2dae2;
     --text-primary-dark-color: #3e3e3e;
     --text-primary-light-color: #a0a0a0;
-}
-
-::-webkit-scrollbar {
-    width: auto;
-}
-
-::-webkit-scrollbar-track {
-    background-color: #232323;
-}
-
-::-webkit-scrollbar-thumb {
-    background-color: #BE9500;
-}
-
-::-webkit-scrollbar-button {
-    background-color: #4B4B4B;
-}
-
-::-webkit-scrollbar-corner {
-    background-color: #6F6F6F;
 }
 
 html {
@@ -187,10 +168,10 @@ body {
     }
 }
 
-.loader-text {
+.loading-text {
     font-family: "Raleway";
     font-size: 16px;
-    font-weight: 600;
+    font-weight: 800;
     text-transform: uppercase;
     letter-spacing: 0px;
     color: var(--theme-light-color);
@@ -227,7 +208,7 @@ body {
     font-size: 32px;
     color: var(--theme-dark-color);
     transition: color 320ms linear;
-    filter: drop-shadow(0px 0px 1px black);
+    text-shadow: 0px 0px 1px #000000;
 }
 
 .scroll-up:hover {
@@ -238,21 +219,19 @@ body {
     color: var(--theme-light-color);
 }
 
-
-
-
-
-
-
 .header {
     position: relative;
     height: 100vh;
     width: 100%;
-    background-image: url("../img/content/header/bg.jpg");
+    background-image: url("../img/content/header/bg-warehouse.jpg");
     background-position: center center;
     background-repeat: no-repeat;
     background-size: cover;
-
+    overflow: hidden;
+    transition: background-image 512ms linear;
+/*     -o-transition: background-image 512ms linear;
+    -moz-transition: background-image 512ms linear;
+    -webkit-transition: background-image 512ms linear; */
 }
 
 .h-navbar {
@@ -266,30 +245,27 @@ body {
     z-index: 1;
 }
 
-.h-n-logo {
-    cursor: pointer;
-}
-
 .h-n-logo>img {
     height: 64px;
     width: 128px;
-    filter: drop-shadow(0px 0px 0px var(--theme-light-color));
-    animation: pulseLogo 1536ms linear infinite alternate;
+    filter: drop-shadow(0px 0px 1px var(--theme-light-color));
+    user-select: none;
+    animation: pulseLogo 1792ms linear infinite alternate;
     animation-play-state: running;
-}
-
-.h-n-logo>img:hover {
-    animation-play-state: paused;
 }
 
 @keyframes pulseLogo {
     from {
-        filter: drop-shadow(0px 0px 0px var(--theme-light-color));
+        filter: drop-shadow(0px 0px 1px var(--theme-light-color));
     }
 
     to {
         filter: drop-shadow(0px 0px 4px var(--theme-light-color));
     }
+}
+
+.h-n-logo>img:hover {
+    animation-play-state: paused;
 }
 
 .h-n-menu>ul {
@@ -301,19 +277,19 @@ body {
 }
 
 .h-n-menu>ul>li:not(:last-of-type) {
-    margin-right: 16px;
+    margin-right: 24px;
 }
 
 .h-n-menu>ul>li>a {
     position: relative;
     font-family: "Raleway";
-    font-weight: 500;
-    font-size: 14px;
+    font-weight: 600;
+    font-size: 12px;
     text-decoration: none;
-    text-transform: capitalize;
+    text-transform: uppercase;
     color: var(--text-light-color);
-    padding: 8px;
     transition: color 320ms linear;
+    padding: 8px;
 }
 
 .h-n-menu>ul>li>a:hover {
@@ -364,10 +340,10 @@ body {
     font-family: "Raleway";
     font-style: italic;
     font-size: 16px;
-    font-weight: 200;
+    font-weight: 300;
     text-align: center;
     text-transform: capitalize;
-    color: var(--text-light-primary-color);
+    color: var(--text-primary-light-color);
     margin-bottom: 16px;
 }
 
@@ -379,7 +355,7 @@ body {
     height: 2px;
     width: 32px;
     transform: translate(0%, -50%);
-    background-color: var(--theme-light-color);
+    background-color: var(--theme-dark-color);
 }
 
 .h-description>h3::after {
@@ -390,38 +366,29 @@ body {
     height: 2px;
     width: 32px;
     transform: translate(0%, -50%);
-    background-color: var(--theme-light-color);
+    background-color: var(--theme-dark-color);
 }
 
 .h-description>h4 {
-    font-family: "Raleway";
-    font-size: 48px;
-    font-weight: 500;
-    text-transform: uppercase;
-    color: var(--theme-light-color);
-    margin-bottom: 16px;
-}
-
-.h-description>h5 {
     position: relative;
-    height: 56px;
+    height: 49px;
     width: auto;
     font-family: "Raleway";
-    font-size: 48px;
+    font-size: 42px;
     font-weight: 500;
     text-align: center;
     text-transform: uppercase;
-    color: var(--text-light-color);
+    color: var(--theme-light-color);
 }
 
-.h-description>h5::before {
+.h-description>h4::before {
     content: "";
     position: absolute;
     top: 50%;
     right: -10px;
     height: 100%;
     width: 4px;
-    background-color: var(--text-light-color);
+    background-color: var(--theme-dark-color);
     transform: translate(0%, -50%);
     opacity: 1;
     animation: typingText 320ms linear infinite alternate;
@@ -443,7 +410,7 @@ body {
     left: 0px;
     height: auto;
     width: 100%;
-    background-color: var(--theme-panel-color);
+    background-color: var(--theme-panel-alpha32-color);
     backdrop-filter: blur(3px);
     z-index: 1;
 }
@@ -455,7 +422,7 @@ body {
 }
 
 .h-info-block:hover {
-    background-color: var(--theme-dark-alpha-color);
+    background-color: var(--theme-light-alpha32-color);
 }
 
 .h-info-block-column {
@@ -479,7 +446,7 @@ body {
     font-size: 14px;
     font-weight: 300;
     border-top: 2px solid var(--theme-dark-color);
-    color: var(--text-light-primary-color);
+    color: var(--text-light-color);
 }
 
 .fa-flash-info-type {
@@ -501,6 +468,8 @@ body {
     height: 600px;
     width: 570px;
     border-radius: 6px;
+    object-fit: cover;
+    object-position: center;
     filter: grayscale(0.64);
 }
 
@@ -526,7 +495,7 @@ body {
     left: 0px;
     height: 4px;
     width: 256px;
-    background-color: var(--theme-light-color);
+    background-color: var(--theme-dark-color);
 }
 
 .m-au-description>p {
@@ -544,61 +513,48 @@ body {
     margin-bottom: 64px;
 }
 
-.m-l-counter-wrap {
-    flex-wrap: wrap;
-}
-
 .m-l-counter-block {
     height: 256px;
     width: 256px;
-    background-color: var(--theme-dark-div-color);
-    border-radius: 6px;
-    opacity: 0.89;
-    transition: opacity 320ms linear;
+    background-color: var(--theme-multi-color);
+    border-radius: 8px;
+    transition: box-shadow 320ms linear;
+    padding: 32px;
 }
 
-.m-l-counter-block:hover {
-    opacity: 1;
+.m-l-counter-block:hover{
+    box-shadow: -12px 12px 12px #000000;
+}
+
+.fa-flash-counter-type {
+    font-size: 48px;
+    color: var(--theme-dark-color);
 }
 
 .m-l-counter-block>h3:nth-of-type(1) {
-    font-family: "Arial";
+    font-family: "Raleway";
     font-size: 42px;
-    font-weight: 300;
-    color: var(--text-light-primary-color);
+    font-weight: 700;
+    color: var(--theme-light-color);
 }
 
 .m-l-counter-block>h3:nth-of-type(1)::after {
     content: "+";
     font-family: "Arial";
     font-size: 42px;
-    font-weight: 300;
-    color: var(--theme-light-color);
-    margin-left: 8px;
+    font-weight: 700;
+    color: var(--theme-dark-color);
+    margin-left: 12px;
 }
 
 .m-l-counter-block>h3:nth-of-type(2) {
     font-family: "Raleway";
-    font-size: 18px;
-    font-weight: 400;
-    text-transform: capitalize;
-    text-decoration: double;
-    color: var(--text-light-primary-color);
-    margin-top: 24px;
-}
+    font-size: 16px;
+    font-weight: 700;
+    text-transform: uppercase;
+    text-align: center;
+    color: var(--text-light-color);
 
-.cs-separator {
-    height: auto;
-    width: 64%;
-    border: 1px solid var(--theme-light-div-color);
-    outline: none;
-}
-
-.fa-flash-counter-type {
-    font-size: 42px;
-    color: var(--theme-light-color);
-    filter: drop-shadow(0px 0px 4px #000000);
-    margin-bottom: 24px;
 }
 
 .m-lending {
@@ -613,14 +569,14 @@ body {
     width: auto;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
     flex: 1;
     background-position: center center;
     background-repeat: no-repeat;
     background-size: cover;
-    transition: flex 320ms linear;
-    padding: 32px;
+    transition: flex 512ms linear;
+    padding: 64px;
 }
 
 .m-l-b-overlay {
@@ -629,9 +585,9 @@ body {
     left: 0px;
     height: 100%;
     width: 100%;
-    background-color: var(--theme-dark-alpha-color);
+    background-color: var(--theme-dark-alpha32-color);
     opacity: 0;
-    transition: opacity 320ms linear;
+    transition: opacity 512ms linear;
     z-index: 0;
 }
 
@@ -640,62 +596,71 @@ body {
 }
 
 .m-l-block:hover .m-l-b-overlay {
-    opacity: 1;
+    opacity: 0.32;
 }
 
 .m-l-block-first {
     background-image: url(../img/content/lending/bg-box-1.jpg);
-    animation-delay: 0.4s;
 }
 
 .m-l-block-second {
     background-image: url(../img/content/lending/bg-box-2.jpg);
-    animation-delay: 0.2s;
-}
-
-.m-l-block-third {
-    background-image: url(../img/content/lending/bg-box-3.jpg);
-    animation-delay: 0.2s;
-}
-
-.m-l-block-fourth {
-    background-image: url(../img/content/lending/bg-box-4.jpg);
-    animation-delay: 0.4s;
 }
 
 .fa-flash-lending-type {
-    font-size: 32px;
-    color: var(--theme-light-color);
-    filter: drop-shadow(0px 0px 8px #000000);
-    margin-bottom: 16px;
+    font-size: 36px;
+    color: var(--theme-dark-color);
+    text-shadow: 0px 0px 8px #000000;
+    margin-bottom: 24px;
     z-index: 1;
 }
 
 .m-l-block>h3 {
     height: auto;
-    width: 190px;
+    width: 256px;
     font-family: "Raleway";
-    font-size: 18px;
-    font-weight: 600;
+    font-size: 20px;
+    font-weight: 700;
     text-align: center;
     text-transform: uppercase;
-    color: var(--text-light-color);
-    overflow: hidden;
-    margin-bottom: 16px;
+    color: var(--theme-dark-color);
+    margin-bottom: 24px;
     z-index: 1;
 }
 
 .m-l-block>p {
     height: auto;
-    width: 190px;
+    width: 256px;
     font-family: "Raleway";
     font-size: 16px;
     font-weight: 300;
     text-align: center;
-    color: var(--text-light-primary-color);
-    overflow: hidden;
+    color: var(--text-primary-light-color);
     z-index: 1;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 .m-price {
     height: auto;

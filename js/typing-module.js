@@ -12,8 +12,8 @@ const SPEED_DELETING_TEXT = 128;
 const WAIT_DELETING_TEXT = 128;
 /*ENDED - CONTROL*/
 
-var k = ["red","blue"]
-var k_index = 0;
+/* var k = ["red","blue"]
+var k_index = 0; */
 
 function typingText() {
     const currentWord = wordsArray[wordsIndex];
@@ -28,6 +28,7 @@ function typingText() {
         }
         else {
             setTimeout(() => {
+
                 typingText();
             }, SPEED_TYPING_TEXT);
         }
@@ -38,18 +39,31 @@ function typingText() {
         if (tempText === "") {
             isDeleting = false;
             wordsIndex = (wordsIndex + 1) % wordsArray.length;
+
+
+            if(!(currentWord.toLowerCase() === "freight")){
+                console.log("freight")
+                document.querySelector(".header").style.backgroundImage = "url(\"img/content/header/bg-freight.jpg\")"
+            }
+            
+            else{
+                console.log("warehouse")
+            document.querySelector(".header").style.backgroundImage = "url(\"img/content/header/bg-warehouse.jpg\")"
+            }
+
+
+
             setTimeout(() => {
 
-                if(k_index > k.length+1){
+/*                 if(k_index > k.length+1){
                     k_index = 0;
                     document.body.style.backgroundColor = k[k_index];
+                    k++;
                 }
                 else{
                     document.body.style.backgroundColor = k[k_index];
                     k_index++;
-                }
-
-
+                } */
 
                 typingText();
             }, WAIT_DELETING_TEXT);
