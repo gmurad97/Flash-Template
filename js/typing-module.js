@@ -1,5 +1,6 @@
 let textElement = document.getElementById("typing-text");
 let wordsArray = textElement.getAttribute("data-typing-words").split(", ");
+let headerElement = document.querySelector(".header");
 
 let wordsIndex = 0;
 let isDeleting = false;
@@ -11,9 +12,6 @@ const WAIT_TYPING_TEXT = 1536;
 const SPEED_DELETING_TEXT = 128;
 const WAIT_DELETING_TEXT = 128;
 /*ENDED - CONTROL*/
-
-/* var k = ["red","blue"]
-var k_index = 0; */
 
 function typingText() {
     const currentWord = wordsArray[wordsIndex];
@@ -39,32 +37,15 @@ function typingText() {
         if (tempText === "") {
             isDeleting = false;
             wordsIndex = (wordsIndex + 1) % wordsArray.length;
-
-
-            if(!(currentWord.toLowerCase() === "freight")){
-                console.log("freight")
-                document.querySelector(".header").style.backgroundImage = "url(\"img/content/header/bg-freight.jpg\")"
+            /*BEGIN - CHANGER BACKGROUND || SLIDER*/
+            if (!currentWord.toLowerCase().includes("delivery")) {
+                headerElement.style.backgroundImage = "url('img/content/header/bg-delivery.jpg')"
             }
-            
-            else{
-                console.log("warehouse")
-            document.querySelector(".header").style.backgroundImage = "url(\"img/content/header/bg-warehouse.jpg\")"
+            else {
+                headerElement.style.backgroundImage = "url('img/content/header/bg-warehouse.jpg')"
             }
-
-
-
+            /*ENDED - CHANGER BACKGROUND || SLIDER*/
             setTimeout(() => {
-
-/*                 if(k_index > k.length+1){
-                    k_index = 0;
-                    document.body.style.backgroundColor = k[k_index];
-                    k++;
-                }
-                else{
-                    document.body.style.backgroundColor = k[k_index];
-                    k_index++;
-                } */
-
                 typingText();
             }, WAIT_DELETING_TEXT);
         }

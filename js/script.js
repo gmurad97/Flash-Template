@@ -28,41 +28,31 @@ window.onscroll = () => {
     scrollObsrv();
 }
 
-let lendingBlocks = document.querySelectorAll(".m-l-block");
+let faBounceEffectBlocks =
+    [
+        ...document.querySelectorAll(".m-l-block"),
+        ...document.querySelectorAll(".m-price-block"),
+        ...document.querySelectorAll(".m-l-counter-block")
+    ]
 
-for (let lendingBlock of lendingBlocks) {
-    lendingBlock.onmouseover = () => {
-        lendingBlock.querySelector("[class*=\"fa-flash\"]").classList.add("fa-bounce");
+for (let faBounceEffectBlock of faBounceEffectBlocks) {
+    faBounceEffectBlock.onmouseover = () => {
+        faBounceEffectBlock.querySelector("[class*=\"fa-flash\"]").classList.add("fa-bounce");
     }
-    lendingBlock.onmouseout = () => {
-        lendingBlock.querySelector("[class*=\"fa-flash\"]").classList.remove("fa-bounce");
+    faBounceEffectBlock.onmouseout = () => {
+        faBounceEffectBlock.querySelector("[class*=\"fa-flash\"]").classList.remove("fa-bounce");
     }
 }
-
-
-
-
-
-
-
-
-
-
-
 
 function galleryImgVisible(boolVisibility) {
     let galleryAllImages = document.querySelectorAll("[data-unique-name]");
     if (boolVisibility) {
         for (let gImg of galleryAllImages) {
-            /* gImg.style.width = "288px";
-            gImg.style.opacity = "1"; */
             gImg.style.display = "flex";
         }
     }
     else {
         for (let gImg of galleryAllImages) {
-            /* gImg.style.width = "0px";
-            gImg.style.opacity = "0"; */
             gImg.style.display = "none";
         }
     }
@@ -76,9 +66,31 @@ function filterImage(uniqueName) {
     else {
         galleryImgVisible(false);
         for (let gImg of galleryTargetImages) {
-            /* gImg.style.width = "288px";
-            gImg.style.opacity = "1"; */
             gImg.style.display = "flex";
+        }
+    }
+}
+
+let galleryLiMenu = document.querySelectorAll(".m-gallery-control > ul > li")
+for (let liMenu of galleryLiMenu) {
+    if (liMenu.textContent.toLowerCase() === "all") {
+        liMenu.onclick = () => {
+            filterImage('all-flesh-img');
+        }
+    }
+    else if (liMenu.textContent.toLowerCase() === "warehouse") {
+        liMenu.onclick = () => {
+            filterImage('warehouse');
+        }
+    }
+    else if (liMenu.textContent.toLowerCase() === "delivery") {
+        liMenu.onclick = () => {
+            filterImage('delivery');
+        }
+    }
+    else if (liMenu.textContent.toLowerCase() === "partners") {
+        liMenu.onclick = () => {
+            filterImage('partners');
         }
     }
 }
