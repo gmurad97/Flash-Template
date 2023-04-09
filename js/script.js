@@ -7,6 +7,8 @@ window.onload = () => {
 }
 
 let scrollBtn = document.querySelector(".scroll-up");
+let headerNavBar = document.querySelector(".h-navbar");
+let headerNavBarLogo = document.querySelector(".h-n-logo>img");
 
 scrollBtn.onclick = () => {
     document.body.scrollTop = 0;
@@ -17,10 +19,14 @@ function scrollObsrv() {
     if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
         scrollBtn.style.opacity = "1";
         scrollBtn.ontransitionend = () => scrollBtn.style.zIndex = "1024";
+        headerNavBar.style.backgroundColor = "var(--theme-panel-alpha64-color)";
+        headerNavBarLogo.style.width = "96px";
     }
     else {
         scrollBtn.style.opacity = "0";
         scrollBtn.ontransitionend = () => scrollBtn.style.zIndex = "-1024";
+        headerNavBar.style.backgroundColor = "var(--theme-panel-alpha32-color)";
+        headerNavBarLogo.style.width = "111px";
     }
 }
 
