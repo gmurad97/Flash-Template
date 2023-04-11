@@ -8,7 +8,7 @@ window.onload = () => {
 
 let scrollBtn = document.querySelector(".scroll-up");
 let headerNavBar = document.querySelector(".h-navbar");
-let headerNavBarLogo = document.querySelector(".h-n-logo>img");
+let headerNavBarLogo = document.querySelector(".h-n-logo>a>img");
 
 scrollBtn.onclick = () => {
     document.body.scrollTop = 0;
