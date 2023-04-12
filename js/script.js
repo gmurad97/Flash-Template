@@ -1,5 +1,5 @@
 window.onload = () => {
-    let WOW_OBJ_INIT = new WOW().init();
+    new WOW().init();
     let pLoader = document.querySelector(".preloader");
     document.body.style.overflow = "visible";
     pLoader.style.opacity = 0;
@@ -97,7 +97,7 @@ function filterImage(uniqueName) {
 
 let galleryLiMenu = document.querySelectorAll(".m-gallery-control > ul > li")
 for (let liMenu of galleryLiMenu) {
-    if (liMenu.textContent.toLowerCase() === "all" || liMenu.textContent.toLowerCase() === "ümumi" ||liMenu.textContent.toLowerCase() === "все") {
+    if (liMenu.textContent.toLowerCase() === "all" || liMenu.textContent.toLowerCase() === "ümumi" || liMenu.textContent.toLowerCase() === "все") {
         liMenu.onclick = () => {
             filterImage('all-flesh-img');
         }
@@ -120,7 +120,7 @@ for (let liMenu of galleryLiMenu) {
 }
 
 const counterStatsElements = document.querySelectorAll("[data-stats-counter]");
-const ANIMATION_DURATION = 1536;
+const ANIMATION_DURATION = 2048;
 
 function animationCounterStats(element, start, end, animationDuration) {
     let startTimestamp = null;
@@ -155,3 +155,71 @@ function entries(entry) {
         }
     })
 }
+
+const galleryAllImages = document.querySelectorAll(".m-gallery-img>img");
+const modalContainer = document.querySelector(".modal-container");
+const modalImage = document.querySelector(".modal-content>img");
+const closeBtnModal = document.querySelector("#modal-img-close-btn");
+const prevBtnModal = document.querySelector("#modal-img-left-btn");
+const nextBtnModal = document.querySelector("#modal-img-right-btn");
+
+galleryAllImages.forEach(image => {
+    image.addEventListener("click", () => {
+        const imageUrl = image.getAttribute("src");
+        modalImage.setAttribute("src", imageUrl);
+        modalContainer.style.zIndex = "1024";
+        modalContainer.style.transform = "translate(-50%, -50%) scale(1)";
+        modalContainer.ontransitionend = () => {
+            modalContainer.style.zIndex = "1024";
+        };
+    });
+});
+
+closeBtnModal.addEventListener("click", () => {
+    modalContainer.ontransitionend = () => {
+        modalContainer.style.zIndex = "-1024";
+    };
+    modalContainer.style.transform = "translate(-50%, -50%) scale(0)";
+});
+
+nextBtnModal.addEventListener("click", () => {
+    const currentImage = modalImage.getAttribute("src");
+    let nextImage;
+    for (let i = 0; i < galleryAllImages.length; i++) {
+        if (galleryAllImages[i].getAttribute("src") === currentImage) {
+            if (i === galleryAllImages.length - 1) {
+                nextImage = galleryAllImages[0].getAttribute("src");
+            } else {
+                nextImage = galleryAllImages[i + 1].getAttribute("src");
+            }
+            break;
+        }
+    }
+    modalImage.setAttribute("src", nextImage);
+});
+
+prevBtnModal.addEventListener("click", () => {
+    const currentImage = modalImage.getAttribute("src");
+    let prevImage;
+    for (let i = 0; i < galleryAllImages.length; i++) {
+        if (galleryAllImages[i].getAttribute("src") === currentImage) {
+            if (i === 0) {
+                prevImage = galleryAllImages[galleryAllImages.length - 1].getAttribute("src");
+            } else {
+                prevImage = galleryAllImages[i - 1].getAttribute("src");
+            }
+            break;
+        }
+    }
+    modalImage.setAttribute("src", prevImage);
+});
+
+
+
+
+
+
+
+
+
+
