@@ -20,6 +20,7 @@ function typingText() {
         textElement.innerHTML = tempText;
         if (tempText === currentWord) {
             isDeleting = true;
+            headerElement.style.backgroundImage = "url('img/content/header/bg-warehouse.jpg')"
             setTimeout(() => {
                 typingText();
             }, WAIT_TYPING_TEXT);
@@ -37,14 +38,7 @@ function typingText() {
         if (tempText === "") {
             isDeleting = false;
             wordsIndex = (wordsIndex + 1) % wordsArray.length;
-            /*BEGIN - CHANGER BACKGROUND || SLIDER*/
-            if (!currentWord.toLowerCase().includes("delivery")) {
-                headerElement.style.backgroundImage = "url('img/content/header/bg-delivery.jpg')"
-            }
-            else {
-                headerElement.style.backgroundImage = "url('img/content/header/bg-warehouse.jpg')"
-            }
-            /*ENDED - CHANGER BACKGROUND || SLIDER*/
+            headerElement.style.backgroundImage = "url('img/content/header/bg-delivery.jpg')"
             setTimeout(() => {
                 typingText();
             }, WAIT_DELETING_TEXT);

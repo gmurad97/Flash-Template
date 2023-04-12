@@ -54,12 +54,24 @@ function galleryImgVisible(boolVisibility) {
     let galleryAllImages = document.querySelectorAll("[data-unique-name]");
     if (boolVisibility) {
         for (let gImg of galleryAllImages) {
-            gImg.style.display = "flex";
+            gImg.style.transform = `scale(1)`;
+            gImg.style.opacity = `1`;
+            gImg.style.visibility = `visible`;
+            gImg.style.width = `24%`;
+            gImg.style.marginLeft = `5px`;
+            gImg.style.marginRight = `5px`;
+            gImg.style.height = `222px`;
         }
     }
     else {
         for (let gImg of galleryAllImages) {
-            gImg.style.display = "none";
+            gImg.style.transform = `scale(0)`;
+            gImg.style.opacity = `0`;
+            gImg.style.visibility = `hidden`;
+            gImg.style.width = `0`;
+            gImg.style.marginLeft = `0`;
+            gImg.style.marginRight = `0`;
+            gImg.style.height = `0`;
         }
     }
 }
@@ -72,29 +84,35 @@ function filterImage(uniqueName) {
     else {
         galleryImgVisible(false);
         for (let gImg of galleryTargetImages) {
-            gImg.style.display = "flex";
+            gImg.style.transform = `scale(1)`;
+            gImg.style.opacity = `1`;
+            gImg.style.visibility = `visible`;
+            gImg.style.width = `24%`;
+            gImg.style.marginLeft = `5px`;
+            gImg.style.marginRight = `5px`;
+            gImg.style.height = `222px`;
         }
     }
 }
 
 let galleryLiMenu = document.querySelectorAll(".m-gallery-control > ul > li")
 for (let liMenu of galleryLiMenu) {
-    if (liMenu.textContent.toLowerCase() === "all") {
+    if (liMenu.textContent.toLowerCase() === "all" || liMenu.textContent.toLowerCase() === "ümumi" ||liMenu.textContent.toLowerCase() === "все") {
         liMenu.onclick = () => {
             filterImage('all-flesh-img');
         }
     }
-    else if (liMenu.textContent.toLowerCase() === "warehouse") {
+    else if (liMenu.textContent.toLowerCase() === "warehouse" || liMenu.textContent.toLowerCase() === "anbar" || liMenu.textContent.toLowerCase() === "склад") {
         liMenu.onclick = () => {
             filterImage('warehouse');
         }
     }
-    else if (liMenu.textContent.toLowerCase() === "delivery") {
+    else if (liMenu.textContent.toLowerCase() === "delivery" || liMenu.textContent.toLowerCase() === "daşınma" || liMenu.textContent.toLowerCase() === "доставка") {
         liMenu.onclick = () => {
             filterImage('delivery');
         }
     }
-    else if (liMenu.textContent.toLowerCase() === "partners") {
+    else if (liMenu.textContent.toLowerCase() === "partners" || liMenu.textContent.toLowerCase() === "партнеры" || liMenu.textContent.toLowerCase() === "partnyorlar") {
         liMenu.onclick = () => {
             filterImage('partners');
         }
