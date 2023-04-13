@@ -1,5 +1,5 @@
-const allLangs = ["az", "en", "ru"]; // [0]-AZ; [1]-EN; [2]-RU;
-let currentLang = allLangs[1];
+const allLangs = ["az", "en", "ru"];
+let currentLang = allLangs[0];
 let langOptions = document.querySelectorAll(".option-lang");
 const langChangeElements = document.querySelectorAll("[data-lang]");
 
@@ -183,14 +183,14 @@ function changeLang(lang) {
     if (lang === allLangs[0] || lang === allLangs[1] || lang === allLangs[2]) {
         langChangeElements.forEach(langElement => {
             langElement.innerHTML = langDictionary[langElement.getAttribute("data-lang")][lang];
-        })
+        });
         document.querySelector(".selected-lang").innerHTML = `<img src='img/content/lang/lang_${lang}.jpg' alt='${lang}'>`.concat(" ", lang);
         document.querySelector("[data-typing-words]").setAttribute("data-typing-words", `${langFixedDictionary["Warehouse"][lang]}, ${langFixedDictionary["Delivery"][lang]}`);
     }
     else {
         langChangeElements.forEach(langElement => {
             langElement.innerHTML = langDictionary[langElement.getAttribute("data-lang")]["en"];
-        })
+        });
     }
 }
 

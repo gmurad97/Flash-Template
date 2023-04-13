@@ -1,3 +1,5 @@
+"use strict"
+
 window.onload = () => {
     new WOW().init();
     let pLoader = document.querySelector(".preloader");
@@ -20,7 +22,7 @@ function scrollObsrv() {
         scrollBtn.style.opacity = "1";
         scrollBtn.ontransitionend = () => scrollBtn.style.zIndex = "1024";
         headerNavBar.style.backgroundColor = "var(--theme-panel-alpha64-color)";
-        headerNavBarLogo.style.width = "96px";
+        headerNavBarLogo.style.width = "80px";
     }
     else {
         scrollBtn.style.opacity = "0";
@@ -34,12 +36,7 @@ window.onscroll = () => {
     scrollObsrv();
 }
 
-let faBounceEffectBlocks =
-    [
-        ...document.querySelectorAll(".m-l-block"),
-        ...document.querySelectorAll(".m-price-block"),
-        ...document.querySelectorAll(".m-l-counter-block")
-    ]
+let faBounceEffectBlocks = document.querySelectorAll(".m-l-block, .m-price-block, .m-l-counter-block");
 
 for (let faBounceEffectBlock of faBounceEffectBlocks) {
     faBounceEffectBlock.onmouseover = () => {
@@ -95,27 +92,28 @@ function filterImage(uniqueName) {
     }
 }
 
-let galleryLiMenu = document.querySelectorAll(".m-gallery-control > ul > li")
+const menuToClassMap = {
+    "all": "all-flesh-img",
+    "ümumi": "all-flesh-img",
+    "все": "all-flesh-img",
+    "warehouse": "warehouse",
+    "anbar": "warehouse",
+    "склад": "warehouse",
+    "delivery": "delivery",
+    "daşınma": "delivery",
+    "доставка": "delivery",
+    "partners": "partners",
+    "партнеры": "partners",
+    "partnyorlar": "partners"
+};
+
+const galleryLiMenu = document.querySelectorAll(".m-gallery-control > ul > li");
+
 for (let liMenu of galleryLiMenu) {
-    if (liMenu.textContent.toLowerCase() === "all" || liMenu.textContent.toLowerCase() === "ümumi" || liMenu.textContent.toLowerCase() === "все") {
+    if (menuToClassMap[liMenu.textContent.toLowerCase()]) {
         liMenu.onclick = () => {
-            filterImage('all-flesh-img');
-        }
-    }
-    else if (liMenu.textContent.toLowerCase() === "warehouse" || liMenu.textContent.toLowerCase() === "anbar" || liMenu.textContent.toLowerCase() === "склад") {
-        liMenu.onclick = () => {
-            filterImage('warehouse');
-        }
-    }
-    else if (liMenu.textContent.toLowerCase() === "delivery" || liMenu.textContent.toLowerCase() === "daşınma" || liMenu.textContent.toLowerCase() === "доставка") {
-        liMenu.onclick = () => {
-            filterImage('delivery');
-        }
-    }
-    else if (liMenu.textContent.toLowerCase() === "partners" || liMenu.textContent.toLowerCase() === "партнеры" || liMenu.textContent.toLowerCase() === "partnyorlar") {
-        liMenu.onclick = () => {
-            filterImage('partners');
-        }
+            filterImage(menuToClassMap[liMenu.textContent.toLowerCase()]);
+        };
     }
 }
 
@@ -148,7 +146,7 @@ function entries(entry) {
     entry.forEach(change => {
         if (change.isIntersecting) {
             counterStatsElements.forEach((element) => {
-                const countTo = element.getAttribute('data-stats-counter');
+                const countTo = element.getAttribute("data-stats-counter");
                 animationCounterStats(element, 0, countTo, ANIMATION_DURATION);
                 observer.disconnect();
             })
@@ -213,13 +211,3 @@ prevBtnModal.addEventListener("click", () => {
     }
     modalImage.setAttribute("src", prevImage);
 });
-
-
-
-
-
-
-
-
-
-
