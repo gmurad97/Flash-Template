@@ -102,6 +102,7 @@ body {
 .wrapper {
     height: auto;
     width: 1200px;
+    padding: 8px;
 }
 
 .heading-text {
@@ -944,10 +945,6 @@ body {
     margin-bottom: 32px;
 }
 
-.f-h-moreinfo {
-    margin-right: 16px;
-}
-
 .f-h-moreinfo>h3,
 .f-h-social>h3,
 .f-h-contact>h3 {
@@ -1036,4 +1033,147 @@ body {
 
 .f-h-contact>a:hover {
     background-color: var(--theme-light-alpha64-color);
+}
+
+@media screen and (max-width: 1200px) {
+    .wrapper {
+        width: 992px;
+    }
+
+    .m-au-description {
+        margin-left: 64px;
+        max-height: 512px;
+        padding-right: 32px;
+        overflow-y: scroll;
+    }
+
+    .m-au-description>p {
+        text-align: left;
+    }
+
+    .m-about-us>img {
+        height: 512px;
+        width: 512px;
+    }
+
+    .m-gallery-img {
+        width: 30%;
+    }
+}
+
+@media screen and (max-width: 992px) {
+    .wrapper {
+        width: 768px;
+    }
+
+    .m-about-us>img {
+        width: 320px;
+    }
+
+    .m-l-counter-block {
+        height: 224px;
+        width: 224px;
+    }
+
+    .scroll-up {
+        height: 48px;
+        width: 48px;
+    }
+
+    .fa-flesh-up {
+        font-size: 24px;
+    }
+
+
+
+    .f-h-moreinfo {
+        margin-right: 48px;
+    }
+
+    .f-h-social {
+        margin-right: 48px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .wrapper {
+        width: 576px;
+    }
+
+    .wrapper-h-navbar {
+        flex-direction: column;
+    }
+
+    .h-n-menu>ul>li:not(:last-of-type) {
+        margin-right: 8px;
+    }
+
+    .m-about-us {
+        flex-direction: column;
+    }
+
+    .m-au-description {
+        margin-left: 0px;
+        margin-top: 64px;
+        max-height: 384px;
+    }
+
+    .m-about-us>img {
+        width: 100%;
+        height: 320px;
+    }
+
+    .m-lending-counter {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .m-l-counter-block:not(:last-of-type) {
+        margin-right: 16px;
+    }
+
+    .m-l-counter-block:last-of-type {
+        margin-top: 16px;
+    }
+
+    .m-gallery-img {
+        height: 128px;
+    }
+
+    .m-gallery-images {
+        max-height: 409px;
+    }
+
+    .wrapper-f-header {
+        flex-direction: column;
+    }
+
+    .f-h-moreinfo,
+    .f-h-social {
+        margin-right: 0px;
+        margin-bottom: 64px;
+    }
+
+}
+
+@media screen and (max-width: 576px) {
+    .wrapper {
+        width: 384px;
+    }
+
+    .h-n-logo {
+        margin-bottom: 12px;
+    }
+
+    .h-n-menu>ul {
+        margin-bottom: 12px;
+    }
+
+    .h-n-menu {
+        flex-direction: column;
+    }
+
+    .m-lending {
+        flex-direction: column;
+    }
 }
