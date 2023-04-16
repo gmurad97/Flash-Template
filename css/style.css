@@ -841,25 +841,41 @@ body {
     width: 100%;
     display: flex;
     flex-flow: row wrap;
-    justify-content: center;
-    align-items: center;
+    justify-content: flex-start;
+    align-items: flex-start;
     overflow-y: scroll;
+    overflow-x: hidden;
 }
 
 .m-gallery-img {
-    width: 24%;
-    height: 222px;
-    margin: 0px 5px 10px;
-    transition: all 320ms linear;
+    transition: all 384ms linear;
     cursor: pointer;
+    margin: 0px 5px 10px;
+}
+
+.m-gallery-img-visible {
+    height: 222px;
+    width: 280px;
+    opacity: 1;
+    margin-right: 5px;
+    margin-left: 5px;
+}
+
+.m-gallery-img-hidden {
+    height: 0px;
+    width: 0px;
+    opacity: 0;
+    margin-right: 0px;
+    margin-left: 0px;
 }
 
 .m-gallery-img>img {
     height: 100%;
     width: 100%;
-    border: 2px solid var(--theme-dark-color);
-    border-radius: 6px;
     object-fit: cover;
+    border: 2px solid var(--theme-multi-color);
+    border-radius: 6px;
+    box-shadow: 0px 0px 6px var(--theme-multi-color);
 }
 
 .modal-container {
@@ -934,7 +950,6 @@ body {
 .footer {
     height: auto;
     width: 100%;
-    background-color: var(--b-bg-color);
     overflow: hidden;
     padding-top: 32px;
     margin-top: 128px;
