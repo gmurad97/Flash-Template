@@ -3,6 +3,7 @@
 const pLoader = this.document.querySelector(".preloader");
 const bodyElement = document.body;
 const docElement = document.documentElement;
+const rootElement = document.querySelector(":root");
 
 window.addEventListener("load", function () {
     new WOW().init();
@@ -112,59 +113,45 @@ for (let liMenu of galleryLiMenu) {
     }
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+const ANIMATION_DURATION = 2560;
 const counterStatsElements = document.querySelectorAll("[data-stats-counter]");
 
-
-
-const ANIMATION_DURATION = 2048;
-
-function animationCounterStats(element, start, end, animationDuration) {
-    let startTimestamp = null;
-    const step = (timestamp) => {
-        if (!startTimestamp) startTimestamp = timestamp;
-        const animationProgress = Math.min((timestamp - startTimestamp) / animationDuration, 1);
-        element.textContent = Math.floor(animationProgress * (end - start) + start);
+function animateCounterStats(counterElement, counterStartValue, counterEndValue, counterAnimationDuration) {
+    let animationStartTimestamp = null;
+    const animationStep = function (animationTimestamp) {
+        if (!animationStartTimestamp) {
+            animationStartTimestamp = animationTimestamp;
+        }
+        const animationProgress = Math.min((animationTimestamp - animationStartTimestamp) / counterAnimationDuration, 1);
+        counterElement.textContent = Math.floor(animationProgress * (counterEndValue - counterStartValue) + counterStartValue);
         if (animationProgress < 1) {
-            window.requestAnimationFrame(step);
-        } else {
-            element.textContent = parseInt(end);
+            requestAnimationFrame(animationStep);
+        }
+        else {
+            counterElement.textContent = counterEndValue;
         }
     };
-    window.requestAnimationFrame(step);
+    requestAnimationFrame(animationStep);
 }
 
-let options = {
+const obsOption = {
     threshold: [0]
 };
 
-let observer = new IntersectionObserver(entries, options);
-observer.observe(document.querySelector(".m-lending-counter"));
-
-function entries(entry) {
-    entry.forEach(change => {
-        if (change.isIntersecting) {
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+        if (entry.isIntersecting) {
             counterStatsElements.forEach((element) => {
                 const countTo = element.getAttribute("data-stats-counter");
-                animationCounterStats(element, 0, countTo, ANIMATION_DURATION);
-                observer.disconnect();
-            })
+                animateCounterStats(element, 0, countTo, ANIMATION_DURATION);
+            });
+
+            observer.disconnect();
         }
-    })
-}
+    });
+}, obsOption);
+
+observer.observe(document.querySelector(".m-lending-counter"));
 
 const galleryAllImages = document.querySelectorAll(".m-gallery-img>img");
 const modalContainer = document.querySelector(".modal-container");
@@ -174,25 +161,25 @@ const prevBtnModal = document.querySelector("#modal-img-left-btn");
 const nextBtnModal = document.querySelector("#modal-img-right-btn");
 
 galleryAllImages.forEach(image => {
-    image.addEventListener("click", () => {
+    image.addEventListener("click", function () {
         const imageUrl = image.getAttribute("src");
         modalImage.setAttribute("src", imageUrl);
         modalContainer.style.zIndex = "1024";
         modalContainer.style.transform = "translate(-50%, -50%) scale(1)";
-        modalContainer.ontransitionend = () => {
+        modalContainer.addEventListener("transitionend", function () {
             modalContainer.style.zIndex = "1024";
-        };
+        });
     });
 });
 
-closeBtnModal.addEventListener("click", () => {
-    modalContainer.ontransitionend = () => {
+closeBtnModal.addEventListener("click", function () {
+    modalContainer.addEventListener("transitionend", function () {
         modalContainer.style.zIndex = "-1024";
-    };
+    });
     modalContainer.style.transform = "translate(-50%, -50%) scale(0)";
 });
 
-nextBtnModal.addEventListener("click", () => {
+nextBtnModal.addEventListener("click", function () {
     const currentImage = modalImage.getAttribute("src");
     let nextImage;
     for (let i = 0; i < galleryAllImages.length; i++) {
@@ -208,7 +195,7 @@ nextBtnModal.addEventListener("click", () => {
     modalImage.setAttribute("src", nextImage);
 });
 
-prevBtnModal.addEventListener("click", () => {
+prevBtnModal.addEventListener("click", function () {
     const currentImage = modalImage.getAttribute("src");
     let prevImage;
     for (let i = 0; i < galleryAllImages.length; i++) {
@@ -224,35 +211,24 @@ prevBtnModal.addEventListener("click", () => {
     modalImage.setAttribute("src", prevImage);
 });
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-function darkMode(enabled){
-    if(enabled){
-    //darkmode
-    //operating body => bodyelement
+function darkMode(enabled) {
+    if (enabled) {
+        rootElement.style.setProperty("--b-bg-color", "#18191a");
+        rootElement.style.setProperty("--text-dark-color", "#d2dae2");
+        rootElement.style.setProperty("--text-primary-dark-color", "#a7aeb4");
     }
-    else{
-    //light mode
-    //operating body => bodyelement
+    else {
+        rootElement.style.setProperty("--b-bg-color", "#e4e9f7");
+        rootElement.style.setProperty("--text-dark-color", "#3a3c3c");
+        rootElement.style.setProperty("--text-primary-dark-color", "#3e3e3e");
     }
 }
 
 let dateNow = new Date();
 
-if(dateNow.getHours() >= 18 || dateNow.getHours() <= 6){
+if (dateNow.getHours() >= 18 || dateNow.getHours() <= 6) {
     darkMode(true);
 }
-else{
+else {
     darkMode(false);
 }

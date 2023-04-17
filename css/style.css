@@ -487,9 +487,9 @@ body {
     content: "";
     position: absolute;
     top: 50%;
-    left: -48px;
+    left: -36px;
     height: 2px;
-    width: 32px;
+    width: 24px;
     transform: translate(0%, -50%);
     background-color: var(--theme-dark-color);
 }
@@ -498,9 +498,9 @@ body {
     content: "";
     position: absolute;
     top: 50%;
-    right: -48px;
+    right: -36px;
     height: 2px;
-    width: 32px;
+    width: 24px;
     transform: translate(0%, -50%);
     background-color: var(--theme-dark-color);
 }
@@ -1027,7 +1027,7 @@ body {
 }
 
 .f-h-social>a:hover {
-    background-color: var(--theme-light-alpha64-color);
+    background-color: var(--theme-light-alpha32-color);
 }
 
 .f-h-contact>a {
@@ -1048,7 +1048,7 @@ body {
 }
 
 .f-h-contact>a:hover {
-    background-color: var(--theme-light-alpha64-color);
+    background-color: var(--theme-light-alpha32-color);
 }
 
 @media screen and (max-width: 1200px) {
@@ -1072,8 +1072,13 @@ body {
         width: 512px;
     }
 
-    .m-gallery-img {
-        width: 30%;
+    .m-gallery-images {
+        max-height: 623px;
+    }
+
+    .m-gallery-img-visible {
+        height: 200px;
+        width: 222px;
     }
 }
 
@@ -1145,14 +1150,6 @@ body {
         margin-top: 16px;
     }
 
-    .m-gallery-img {
-        height: 128px;
-    }
-
-    .m-gallery-images {
-        max-height: 409px;
-    }
-
     .f-h-moreinfo,
     .f-h-social {
         margin-right: 0px;
@@ -1166,7 +1163,15 @@ body {
     .modal-content>img {
         width: 384px;
         height: auto;
+    }
 
+    .m-gallery-images {
+        max-height: 475px;
+    }
+
+    .m-gallery-img-visible {
+        height: 150px;
+        width: 166px;
     }
 }
 
@@ -1197,6 +1202,15 @@ body {
         padding: 8px 0px;
     }
 
+    .h-description>h3 {
+        font-size: 14px;
+    }
+
+    .h-description>h4 {
+        height: 37px;
+        font-size: 32px;
+    }
+
     .m-l-counter-block:not(:last-of-type) {
         margin-right: 0px;
         margin-bottom: 32px;
@@ -1218,14 +1232,6 @@ body {
         width: 100%;
     }
 
-    .m-gallery-img {
-        height: 100px;
-    }
-
-    .m-gallery-images {
-        max-height: 324px;
-    }
-
     .h-info-block {
         padding: 0px 8px;
     }
@@ -1240,5 +1246,14 @@ body {
 
     .h-info-block-column>a:nth-of-type(2) {
         font-size: 12px;
+    }
+
+    .m-gallery-images {
+        max-height: 475px;
+    }
+
+    .m-gallery-img-visible {
+        height: 150px;
+        width: 160px;
     }
 }
