@@ -214,8 +214,8 @@ prevBtnModal.addEventListener("click", function () {
 function darkMode(enabled) {
     if (enabled) {
         rootElement.style.setProperty("--b-bg-color", "#18191a");
-        rootElement.style.setProperty("--text-dark-color", "#d2dae2");
-        rootElement.style.setProperty("--text-primary-dark-color", "#a7aeb4");
+        rootElement.style.setProperty("--text-dark-color", "#ababab");
+        rootElement.style.setProperty("--text-primary-dark-color", "#8f8f8f");
     }
     else {
         rootElement.style.setProperty("--b-bg-color", "#e4e9f7");
